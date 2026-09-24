@@ -1,0 +1,7 @@
+# 本機設定與暫存檔
+.env
+.env.*
+node_modules/
+.DS_Store
+Thumbs.db
+*.log

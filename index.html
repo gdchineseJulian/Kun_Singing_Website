@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="我的歌聲與喜歡的音樂，一張封面、一首歌。">
+  <title>光景 Moments — 音樂作品集</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="./index.html">光景 moments.</a>
+    <label class="search">
+      <input id="search" type="search" placeholder="搜尋歌名或演唱者…" aria-label="搜尋歌曲">
+    </label>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h1>我的歌聲，與喜歡的音樂。</h1>
+      <p class="description">一張封面，一首歌。點選封面，聽聽這段旋律。</p>
+    </section>
+
+    <section aria-label="歌曲集">
+      <div class="filters" role="group" aria-label="歌曲分類">
+        <button class="filter active" data-category="全部" aria-pressed="true">全部歌曲</button>
+        <button class="filter" data-category="我的歌聲" aria-pressed="false">我的歌聲</button>
+        <button class="filter" data-category="音樂收藏" aria-pressed="false">音樂收藏</button>
+      </div>
+      <p id="song-count" aria-live="polite"></p>
+
+      <div class="gallery">
+        <!-- 一個 button 就是一首歌。將 data-audio="" 改成 data-audio="audio/my-song.mp3"。 -->
+        <button class="card" data-category="我的歌聲" data-audio="audio/song1.wav" aria-label="開啟歌曲：我的第一首翻唱">
+          <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="山峰封面">
+          <h2>我的第一首翻唱</h2>
+          <p>演唱：我自己 · 我的歌聲</p>
+        </button>
+
+        <button class="card" data-category="我的歌聲" data-audio="" aria-label="開啟歌曲：練唱日記">
+          <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="午後咖啡封面">
+          <h2>練唱日記</h2>
+          <p>演唱：我自己 · 我的歌聲</p>
+        </button>
+
+        <button class="card" data-category="音樂收藏" data-audio="" aria-label="開啟歌曲：喜歡的一段旋律">
+          <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="森林陽光封面">
+          <h2>喜歡的一段旋律</h2>
+          <p>演出者：待填寫 · 音樂收藏</p>
+        </button>
+      </div>
+
+      <p id="empty" hidden>找不到歌曲，請換個關鍵字或分類。</p>
+    </section>
+  </main>
+
+  <footer>光景 moments. — 用音樂，記得生活的樣子。</footer>
+
+  <!-- 使用瀏覽器內建播放器，不需要自己製作播放與音量按鈕。 -->
+  <dialog id="player" aria-labelledby="song-title">
+    <button id="close" class="close" aria-label="關閉播放器">×</button>
+    <img id="song-cover" alt="">
+    <h2 id="song-title"></h2>
+    <p id="song-artist"></p>
+    <audio id="audio" controls preload="none" aria-label="歌曲播放器"></audio>
+    <p id="player-message" role="status"></p>
+  </dialog>
+</body>
+</html>
